@@ -13,6 +13,14 @@ public ListNode mergeKLists(ArrayList<ListNode> lists) {
   return newHead;
 }
 
+// 4 6   1 3 5
+// 
+// 
+// m(4,1) 
+//   - m(4,3)
+//     - m(4, 5)  4 -> 5 -> 6
+//       - m(6, 5) 5->6
+//         - m(6, null)
 public ListNode merge2Lists(ListNode l1, ListNode l2) {
   if(l1 == null && l2 == null) return null;
   if(l1 == null) return l2;
@@ -31,11 +39,3 @@ public ListNode merge2Lists(ListNode l1, ListNode l2) {
 }  
 
 
-4 6   1 3 5
-
-
-m(4,1) 
-  - m(4,3)
-    - m(4, 5)  4 -> 5 -> 6
-      - m(6, 5) 5->6
-        - m(6, null)
