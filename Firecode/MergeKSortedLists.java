@@ -3,11 +3,11 @@
 
 public ListNode mergeKLists(ArrayList<ListNode> lists) {
   if(lists == null) return null;
-  if(lists.size() == 1 ) return list.get(0);
+  if(lists.size() == 1 ) return lists.get(0);
 
-  ListNode newHead;
-  for(int i=0; i<lists.size()-1; i++) {
-    newHead = merge2Lists(lists.get(i), lists.get(i+1));
+  ListNode newHead = lists.get(0);
+  for(int i=1; i<lists.size(); i++) {
+    newHead = merge2Lists(newHead, lists.get(i));
   }  
 
   return newHead;
@@ -26,7 +26,7 @@ public ListNode merge2Lists(ListNode l1, ListNode l2) {
   if(l1 == null) return l2;
   if(l2 == null) return l1;
 
-  ListNode newHead;
+  ListNode newHead = null;
   if(l1.data <= l2.data) {
     newHead = l1;
     newHead.next = merge2Lists(l1.next, l2);
